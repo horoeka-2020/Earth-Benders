@@ -1,4 +1,54 @@
-<h1>Kia Ora</h1>
+<div class="city">
+    <h1>City of Auckland</h1>
+    <ul>
+        {{#each cityList}}
+        <li> <a href ="/view/{{id}}">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</div>
+
+<button><a href = '/'>Current assignments</a></button>
+<br>
+<br>
+{{!-- <form class="form" action="/new" method="post"> --}}
+  {{!-- <img class="img-circle" src="{{image}}" alt="{{name}}"> --}}
+  {{!-- <h3>Please enter your new womble details</h3>
+  
+  <label for="name" class="form-item">
+    Womble Name:
+    <input type="text" name="name" value="">
+  </label>
+
+  <label for="date_of_birth" class="form-item">
+    Date of Birth:
+    <input type="txt" name="date_of_birth" value="">
+  </label>
+  
+  <label for="age" class="form-item">
+    Age:
+    <input type="txt" name="age" value="">
+  </label>
+
+  <label for="rubbish" class="form-item">Tasks:</label>
+  <select name="rubbish_id" id="rubbish_id">
+      {{#each rubbishList}}
+      <option value="{{this.id}}">{{this.name}}</option>
+      {{/each}}
+  </select>
+
+   <label for="characteristics" class="form-item">Characteristics:</label>
+  <select name="characteristic_id" id="characteristic_id">
+      {{#each characteristicsList}}
+      <option value="{{this.id}}">{{this.description}}</option>
+      {{/each}}
+  </select> --}}
+  
+  {{!-- <input type="hidden" name="image" value="{{image}}"> --}}
+  
+  {{!-- <input type="submit" name="" value="Submit">
+  <name="id" type="hidden" value="{{id}}">
+</form> --}}
+
 
 <div class="dropdown">
   <button class="dropbtn">Pick your destination</button>

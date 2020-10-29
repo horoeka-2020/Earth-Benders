@@ -1,5 +1,5 @@
 const express = require('express')
-// const { getTasks } = require('./db.js')
+// const { getCities, getCityById,  getLandmarks, getLandmarksByID } = require('./db.js')
 
 const db = require('./db.js')
 
@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 
 router.get('/view/:id', (req, res) => {
   const id = req.params.id
-  Promise.all([db.getWombleById(id), db.getRubbish(), db.getCharacteristics()])
+  Promise.all([db.getCityById(id), db.Landmark()])
     .then(tables => {
       const viewData = {
         womble: tables[0],

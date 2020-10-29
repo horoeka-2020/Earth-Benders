@@ -3,45 +3,40 @@ const config = require('./knexfile')[environment]
 const database = require('knex')(config)
 
 module.exports = {
-  getWombles,
-  getWombleById,
-  getRubbish,
-  getTasks,
-  newWomble,
-  getCharacteristics,
-  deleteWomble,
-  updateWomble
+  getCities,
+  getCityById,
+  getLandmarks,
+  getLandmarksByID //,
+  // newWomble,
+  // getCharacteristics,
+  // updateWomble
 }
 
-function getWombles (db = database) {
-  return db('wombles').select()
+function getCities (db = database) {
+  return db('city').select()
 }
 
-function getWombleById (id, db = database) {
+function getCityById (id, db = database) {
 //   console.log(id)
-  return db('wombles')
-    .join('characteristics', 'wombles.characteristic_id', 'characteristics.id')
-    .where('wombles.id', id)
-    .select('wombles.id as wombleId', 'characteristics.id as characteristicsId', 'name', 'description')
+  return db('city')
+    // .join('characteristics', 'wombles.characteristic_id', 'characteristics.id')
+    .where('city.id', id)
+    .select('city.id as cityId', 'city.name as cityName')
     .then(result => ({
-      id: result[0].wombleId,
-      name: result[0].name,
-      description: result[0].description,
-      characteristics: result.filter(characteristic => ({
-        description: characteristic.description
-      }))
+      id: result[0].cityId,
+      name: result[0].cityName,
     }))
 }
 
-function getRubbish (db = database) {
-  return db('rubbish').select()
+function getLandmarks (db = database) {
+  return db('landmark').select()
 }
 
 function getCharacteristics (db = database) {
   return db('characteristics').select()
 }
 
-function getTasks (db = database) {
+function getLandmarksByID (db = database) {
   //   console.log(id)
   return db('wombles')
     .join('rubbish', 'wombles.rubbish_id', 'rubbish.id')

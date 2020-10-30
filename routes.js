@@ -23,12 +23,12 @@ router.get('/', (req, res) => {
 
 router.get('/view/:id', (req, res) => {
   const id = req.params.id
-  Promise.all([db.getCityById(id), db.Landmark()])
+  Promise.all([db.getCityById(id), db.getLandmarks()])
     .then(tables => {
+      console.log(tables)
       const viewData = {
-        womble: tables[0],
-        rubbishList: tables[1],
-        characteristicsList: tables[2]
+        city: tables[0],
+        landmark: tables[1]
       }
       // console.log(JSON.stringify(womble))
       res.render('view', viewData)

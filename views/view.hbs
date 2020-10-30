@@ -2,9 +2,11 @@
     <h1 class="title">Auckland City Landmarks</h1>
     
         {{#each landmarkList}}
-        <div class="landmark-list"></div>
-        <a href="/{{id}}"><img class="img-circle" src="{{this.image}}" alt="{{this.name}}"></a>
+        <div class="column">
+          <div class="row">
+        <a href="/{{id}}"><img  class="img-circle" class="container" src="{{this.image}}" alt="{{this.name}}"></a>
         <p>LandmarkName: <a href ="/landmark/{{id}}">{{this.name}}</a></p>
+        </div>
         </div>
         {{/each}}
 

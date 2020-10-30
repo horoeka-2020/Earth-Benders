@@ -1,14 +1,17 @@
-<div class="city">
+<div class="city" class="app">
+ <div class= "form">
     <h1>Cities:</h1>
 
     <form action="/view/{{id}}" method:"get">
     <label for="cities">Pick a destination:</label>
 
-    <ul>
+
+    <ul >
         {{#each cityList}}
         <li> <a href ="/view/{{id}}">{{name}}</a></li>
         {{/each}}
     </ul>
+    </div>
 
   {{!-- <select>
       {{#each cityList}}
@@ -23,9 +26,10 @@
 <br>
 <br>
 
-<img src="/images/images/welcometoNZ.jpg" alt="welcome to NZ">
 <br>
+</div>
 
+<img class="banner-area" src="/images/images/welcometoNZ.jpg" alt="welcome to NZ">
 
 
 

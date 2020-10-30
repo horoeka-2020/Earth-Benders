@@ -23,9 +23,11 @@ router.get('/', (req, res) => {
 
 router.get('/view/:id', (req, res) => {
   const id = req.params.id
+  // console.log('req.body:',req.body)
+  // console.log("id:", id)
   Promise.all([db.getCityById(id), db.getLandmarks()])
     .then(tables => {
-      console.log(tables)
+      // console.log(tables)
       const viewData = {
         city: tables[0],
         landmark: tables[1]

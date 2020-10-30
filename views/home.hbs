@@ -1,20 +1,28 @@
 <div class="city">
     <h1>Cities:</h1>
 
-    <form action="/view/{{id}}" method:"post">
+    <form action="/view/{{id}}" method:"get">
     <label for="cities">Pick a destination:</label>
-    <select name="cities" id="cities">
+
+    <ul>
         {{#each cityList}}
-            <option value="{{name}}">{{name}}</option>
+        <li> <a href ="/view/{{id}}">{{name}}</a></li>
         {{/each}}
-        
-     <input type="submit" value="Lessssgo!!!">
-    </select>
+    </ul>
+
+  {{!-- <select>
+      {{#each cityList}}
+      <option value="{{this.id}}">{{this.name}}</option>
+      {{/each}} --}}
+  
+     {{!-- <input type="submit" value="Lessssgo!!!"> --}}
+    {{!-- </select> --}}
 
 
 {{!-- <button><a href = '/'>Current assignments</a></button> --}}
 <br>
 <br>
+
 <img src="/images/images/welcometoNZ.jpg" alt="welcome to NZ">
 <br>
 

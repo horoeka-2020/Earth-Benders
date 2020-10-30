@@ -6,7 +6,7 @@ module.exports = {
   getCities,
   getCityById,
   getLandmarks,
-  getLandmarksByID //,
+  getLandmarkByID //,
   // newWomble,
   // getCharacteristics,
   // updateWomble
@@ -36,18 +36,20 @@ function getCharacteristics (db = database) {
   return db('characteristics').select()
 }
 
-function getLandmarksByID (db = database) {
-  //   console.log(id)
-  return db('wombles')
-    .join('rubbish', 'wombles.rubbish_id', 'rubbish.id')
-    // .where('wombles.rubbish_id', 'rubbish.id')
-    .select('wombles.id as wombleId', 'rubbish.id as rubbishId', 'wombles.name as wombleName', 'rubbish.name as rubbishName')
-    .then(result => {
-      return {
-        wombles: result
-      }
-    })
-}
+function getLandmarkByID (id, db = database) {
+     console.log(id)
+    return db('landmark')
+      .join('city', 'landmark.city_id', 'city.id')
+      .where('landmark.id', id)
+      .select('landmark.id as landmarkId', 'city.id as cityId', 'city.name as cityName', 'landmark.name as landmarkName','landmark.description as landmarkDescription', 'landmark.image as landmarkImage')
+      .then(result => ({
+        id: result[0].landmarkId,
+        name: result[0].cityName,
+        landmarkName: result[0].landmarkName,
+        description: result[0].landmarkDescription,
+        image: result[0].landmarkImage
+      }))
+  }
 
 // Create function to add new Womble
 function newWomble (newWomble, db = database) {

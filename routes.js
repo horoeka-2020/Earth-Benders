@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 router.get('/view/:id', (req, res) => {
   const id = req.params.id
   // console.log('req.body:',req.body)
-  // console.log("id:", id)
+   console.log("/view/id:", id)
   Promise.all([db.getCityById(id), db.getLandmarks()])
     .then(tables => {
       // console.log(tables)
@@ -40,45 +40,21 @@ router.get('/view/:id', (req, res) => {
     })
 })
 
-// router.get('/assignments', (req, res) => {
-//   // console.log(JSON.stringify(db.getTasks()))
-//   db.getTasks()
-//     .then(wombles => {
-//       const viewData = {
-//         womblesList: wombles.wombles
-//       }
-//       // console.log(JSON.stringify(wombles))
-//       res.render('assignments', viewData)
-//     })
-//     .catch(err => {
-//       res.status(500).send('DATABASE ERROR: ' + err.message)
-//     })
-// })
 
-// router.post('/new', (req, res) => {
-//   const { name, rubbish_id, characteristic_id, date_of_birth, age } = req.body
-//   const newWomble = { name, rubbish_id, characteristic_id, date_of_birth, age }
-//   return db.newWomble(newWomble)
-//     .then(() => {
-//       res.redirect('/')
-//       return null
-//     })
-//     .catch(err => {
-//       res.status(500).send('DATABASE ERROR: ' + err.message)
-//     })
-// })
-
-// router.post('/view/:id', (req, res) => {
-//   const deleteId = req.params.id // 88813
-
-//   db.deleteWomble(deleteId)
-//     .then(() => {
-//       res.redirect('/')
-//       return null
-//     })
-//     .catch(err => {
-//       res.status(500).send('DATABASE ERROR: ' + err.message)
-//     })
-// })
+router.get('/display/:id', (req, res) => {
+  const id = req.params.id
+  console.log('/display/id:', id)
+  db.getLandmarkByID(id)
+    .then(landmark => {
+      const viewData = {
+        landmark: landmark
+      }
+      // console.log(JSON.stringify(wombles))
+      res.render('display', viewData)
+    })
+    .catch(err => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
 
 module.exports = router

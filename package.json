@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "node": "12.18.3",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
     "knex": "knex",
     "lint": "eslint .",
-    "test": "jest --watch --noStackTrace"
+    "test": "jest --watch --noStackTrace",
+    "build": "knex migrate:latest"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "knex": "^0.21.9",
+    "pg": "^8.4.2",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {

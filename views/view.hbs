@@ -1,0 +1,13 @@
+<div class="landmark">
+    <h1>Landscapes:</h1>
+    <ul>
+        {{#each landmarkList}}
+        <li>LandmarkName: <a href ="/landmark/{{id}}">{{landmark.name}}</a></li>
+        <li>Landmark Description: {{landmark.description}}</li>
+        {{/each}}
+    </ul>
+  {{!-- <h1>Landmark Name:  {{landmark.name}}</h1>
+  <div>Landmark Description: {{landmark.description}}</div>
+  <div></div> --}}
+  <br>
+</div>

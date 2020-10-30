@@ -3,8 +3,8 @@
     
         {{#each landmarkList}}
         <div class="landmark-list"></div>
-        <a href="/{{id}}"><img class="img-circle" src="{{image}}" alt="{{name}}"></a>
-        <p>LandmarkName: <a href ="/landmark/{{id}}">{{landmark.name}}</a></p>
+        <a href="/{{id}}"><img class="img-circle" src="{{this.image}}" alt="{{this.name}}"></a>
+        <p>LandmarkName: <a href ="/landmark/{{id}}">{{this.name}}</a></p>
         </div>
         {{/each}}
 

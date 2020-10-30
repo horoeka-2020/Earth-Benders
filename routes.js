@@ -30,7 +30,7 @@ router.get('/view/:id', (req, res) => {
       // console.log(tables)
       const viewData = {
         city: tables[0],
-        landmark: tables[1]
+        landmarkList: tables[1]
       }
       // console.log(JSON.stringify(womble))
       res.render('view', viewData)
